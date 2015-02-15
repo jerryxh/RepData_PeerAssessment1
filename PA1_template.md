@@ -1,4 +1,10 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+    self_contained: false
+---
 
 
 ## Loading and preprocessing the data
@@ -42,7 +48,7 @@ head(stepsPerDay)
 barplot(height=stepsPerDay$total, names.arg=stepsPerDay$date, main='Total Steps per Day', xlab='Date', ylab='Steps per Day')
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 ### Calculate and report the mean and median of the total number of steps taken per day  
 
@@ -75,7 +81,7 @@ avgDailyActivity <- aggregate(steps~interval, data=activityMonitoringData, FUN=m
 plot(avgDailyActivity, main='Average Daily Activity Pattern', xlab='5-Minute Interval', ylab='Average Number of Steps Taken', type='l')
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 ### Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?  
 
@@ -137,7 +143,7 @@ colnames(stepsPerDay2) <- c('date', 'total')
 barplot(height=stepsPerDay2$total, names.arg=stepsPerDay2$date, main='Total Steps per Day (No Missing Values)', xlab='Date', ylab='Steps per Day')
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
 
 ```r
  mean(stepsPerDay2$total, na.rm=TRUE)
@@ -196,4 +202,4 @@ library('lattice')
 xyplot(avgNumberSteps$steps~avgNumberSteps$interval | avgNumberSteps$daytype, xlab='Interval', ylab='Number of Steps', scales='free', layout=c(1, 2), type='l')
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
